@@ -256,3 +256,22 @@ progress {
   font-size: inherit;
   padding: 0.8rem;
 }
+
+@media only screen and (max-width: 700px) {
+  img {
+    width: 7rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .app {
+    width: 90%;
+  }
+
+  .app-header {
+    width: 90%;
+  }
+  .main {
+    width: 90%;
+  }
+}
