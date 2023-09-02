@@ -12,13 +12,17 @@ import FinishScreen from "./components/FinishScreen";
 import Timer from "./components/Timer";
 import Footer from "./components/Footer";
 
+import Questions from "../data/questions";
+
+console.log(Questions);
+
 const SECS_PER_QUESTION = 40;
 
 const initialState = {
-  questions: [],
+  questions: Questions,
 
   // loading, ready, error, active, finished
-  status: "loading",
+  status: "ready",
   index: 0,
   answer: null,
   points: 0,
@@ -94,15 +98,6 @@ function App() {
     (prev, current) => prev + current.points,
     0
   );
-
-  useEffect(function () {
-    fetch("http://localhost:8000/questions")
-      .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataRecieved", payload: data }))
-      .catch((e) => {
-        dispatch({ type: "dataFailed" });
-      });
-  }, []);
 
   return (
     <div className='app'>
